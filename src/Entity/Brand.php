@@ -34,6 +34,11 @@ class Brand
      */
     private $Productid;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $Status;
+
     public function __construct()
     {
         $this->Productid = new ArrayCollection();
@@ -94,6 +99,18 @@ class Brand
                 $productid->setBrandid(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getStatus(): ?int
+    {
+        return $this->Status;
+    }
+
+    public function setStatus(int $Status): self
+    {
+        $this->Status = $Status;
 
         return $this;
     }

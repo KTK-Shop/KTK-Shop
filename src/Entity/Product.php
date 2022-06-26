@@ -69,6 +69,11 @@ class Product
      */
     private $Orderdetailid;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $Status;
+
     public function __construct()
     {
         $this->Cartid = new ArrayCollection();
@@ -232,6 +237,18 @@ class Product
                 $orderdetailid->setProductid(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getStatus(): ?int
+    {
+        return $this->Status;
+    }
+
+    public function setStatus(int $Status): self
+    {
+        $this->Status = $Status;
 
         return $this;
     }
